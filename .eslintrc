@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "standard",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "react/prop-types": ["error", { "skipUndeclared": true }]
+    }
+}
