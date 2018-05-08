@@ -50,7 +50,7 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
-    "start": "NODE_ENV=development nodemon --watch router --watch service index.js",
+    "start": "nodemon --watch router --watch service index.js",
     "build": "webpack --env.production "
   },
   "keywords": [],

@@ -27,7 +27,6 @@ const initialState = {
     topicList: null,
     topicListLoading: false,
     topicPublishLoading: false,
-    topicPublishFormErrors: {},
 
     comment: null,
     commentList: {},
@@ -56,14 +55,6 @@ export default handleAction({
         pre: state => ({
             ...state,
             topicPublishLoading: true
-        }),
-        success: (state, action) => ({
-            ...state,
-            topicList: [action.payload, ...state.topicList]
-        }),
-        error: (state, action) => ({
-            ...state,
-            topicPublishFormErrors: action.payload.detail
         }),
         complete: (state) => ({
             ...state,

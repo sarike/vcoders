@@ -29,12 +29,16 @@ const styleLoader = (env, isScss = true) => {
     ]
 }
 
-const plugins = [
+const commonPlugins = (env) => ([
     new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(env.production ? 'production' : 'development')
+    }),
     new HtmlWebpackPlugin({template: './index.html'})
-]
+])
 
 module.exports = env => {
+    const plugins = commonPlugins(env)
     if (env.production) {
         plugins.unshift(new webpack.optimize.UglifyJsPlugin())
         plugins.unshift(new CleanWebpackPlugin(['public/*.*']))
