@@ -10,8 +10,60 @@
             text-align: center;
             padding-top: 100px;
         }
-        .loading-text {
-            font-size: 12px;
+        .lds-ellipsis {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+        }
+        .lds-ellipsis div {
+            position: absolute;
+            top: 27px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #000;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+        .lds-ellipsis div:nth-child(1) {
+            left: 6px;
+            animation: lds-ellipsis1 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(2) {
+            left: 6px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(3) {
+            left: 26px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(4) {
+            left: 45px;
+            animation: lds-ellipsis3 0.6s infinite;
+        }
+        @keyframes lds-ellipsis1 {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes lds-ellipsis3 {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+        @keyframes lds-ellipsis2 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(19px, 0);
+            }
         }
     </style>
     <title>我们程序员 - vcoders.cn</title>
@@ -19,48 +71,7 @@
 <body>
     <div id="root">
         <div class="loading">
-            <svg width="45" height="45" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#000">
-                <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
-                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
-                        <animate attributeName="r"
-                            begin="1.5s" dur="3s"
-                            values="6;22"
-                            calcMode="linear"
-                            repeatCount="indefinite" />
-                        <animate attributeName="stroke-opacity"
-                            begin="1.5s" dur="3s"
-                            values="1;0" calcMode="linear"
-                            repeatCount="indefinite" />
-                        <animate attributeName="stroke-width"
-                            begin="1.5s" dur="3s"
-                            values="2;0" calcMode="linear"
-                            repeatCount="indefinite" />
-                    </circle>
-                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
-                        <animate attributeName="r"
-                            begin="3s" dur="3s"
-                            values="6;22"
-                            calcMode="linear"
-                            repeatCount="indefinite" />
-                        <animate attributeName="stroke-opacity"
-                            begin="3s" dur="3s"
-                            values="1;0" calcMode="linear"
-                            repeatCount="indefinite" />
-                        <animate attributeName="stroke-width"
-                            begin="3s" dur="3s"
-                            values="2;0" calcMode="linear"
-                            repeatCount="indefinite" />
-                    </circle>
-                    <circle cx="22" cy="22" r="8">
-                        <animate attributeName="r"
-                            begin="0s" dur="1.5s"
-                            values="6;1;2;3;4;5;6"
-                            calcMode="linear"
-                            repeatCount="indefinite" />
-                    </circle>
-                </g>
-            </svg>
-            <div class="loading-text">正在加载资源</div>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
 </body>

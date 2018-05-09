@@ -34,7 +34,10 @@ const commonPlugins = (env) => ([
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env.production ? 'production' : 'development')
     }),
-    new HtmlWebpackPlugin({template: './index.html'})
+    new HtmlWebpackPlugin({
+        template: './index.html',
+        favicon: './favicon.png'
+    })
 ])
 
 module.exports = env => {

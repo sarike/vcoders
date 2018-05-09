@@ -5,9 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .loading {
+            text-align: center;
+            padding-top: 100px;
+        }
+        .lds-ellipsis {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+        }
+        .lds-ellipsis div {
+            position: absolute;
+            top: 27px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #000;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+        .lds-ellipsis div:nth-child(1) {
+            left: 6px;
+            animation: lds-ellipsis1 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(2) {
+            left: 6px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(3) {
+            left: 26px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+        .lds-ellipsis div:nth-child(4) {
+            left: 45px;
+            animation: lds-ellipsis3 0.6s infinite;
+        }
+        @keyframes lds-ellipsis1 {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes lds-ellipsis3 {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+        @keyframes lds-ellipsis2 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(19px, 0);
+            }
+        }
+    </style>
     <title>我们程序员 - vcoders.cn</title>
-<link href="/styles.51bd09700a6dd417695f.css" rel="stylesheet"></head>
+<link rel="shortcut icon" href="/favicon.ico"><link href="/styles.396855fa20108c9d610c.css" rel="stylesheet"></head>
 <body>
-    <div id="root"></div>
-<script type="text/javascript" src="/main.51bd09700a6dd417695f.js"></script></body>
+    <div id="root">
+        <div class="loading">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+<script type="text/javascript" src="/main.396855fa20108c9d610c.js"></script></body>
 </html>
