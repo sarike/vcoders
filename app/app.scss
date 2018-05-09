@@ -25,3 +25,9 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+.links {
+    & > a {
+        margin-right: 15px;
+    }
+}
