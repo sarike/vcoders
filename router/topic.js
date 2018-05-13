@@ -47,9 +47,10 @@ router.post('/', loginRequired(), async ctx => {
     }
     const topicId = await db.transaction(async trx => {
         if (tagToCreate.length > 0) {
-            const newTagIds = await trx
-                .batchInsert('tag', tagToCreate.map(t => ({ name: t })))
-            tagIds = tagIds.concat(newTagIds)
+            tagToCreate.forEach(async t => {
+                const tagId = await trx.insert({ name: t }).into('tag')
+                tagIds = tagIds.concat(tagId)
+            })
         }
         const insertId = await trx
             .insert(topicData)

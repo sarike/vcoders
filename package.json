@@ -51,6 +51,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon --watch router --watch service index.js",
+    "debug": "NODE_ENV=development node --inspect=9229 index.js",
     "build": "webpack --env.production"
   },
   "keywords": [],
