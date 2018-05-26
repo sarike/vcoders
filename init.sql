@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.12)
 # Database: vcoders
-# Generation Time: 2018-05-05 14:31:05 +0000
+# Generation Time: 2018-05-26 16:39:22 +0000
 # ************************************************************
 
 
@@ -22,6 +22,8 @@
 
 # Dump of table comment
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `comment`;
 
 CREATE TABLE `comment` (
   `userId` int(11) NOT NULL,
@@ -42,6 +44,8 @@ CREATE TABLE `comment` (
 # Dump of table tag
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `tag`;
+
 CREATE TABLE `tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL DEFAULT '',
@@ -58,12 +62,15 @@ CREATE TABLE `tag` (
 # Dump of table topic
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `topic`;
+
 CREATE TABLE `topic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(256) NOT NULL DEFAULT '',
   `content` text NOT NULL,
   `userId` int(11) NOT NULL DEFAULT '0',
   `status` tinyint(4) NOT NULL DEFAULT '0',
+  `isSticked` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTIme` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -74,6 +81,8 @@ CREATE TABLE `topic` (
 
 # Dump of table topicTag
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `topicTag`;
 
 CREATE TABLE `topicTag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -90,6 +99,8 @@ CREATE TABLE `topicTag` (
 # Dump of table user
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(45) NOT NULL DEFAULT '',
@@ -98,6 +109,7 @@ CREATE TABLE `user` (
   `avatarURL` varchar(256) NOT NULL DEFAULT '',
   `email` varchar(45) NOT NULL DEFAULT '',
   `status` tinyint(4) NOT NULL DEFAULT '0',
+  `isAdmin` tinyint(4) NOT NULL DEFAULT '0',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -107,6 +119,8 @@ CREATE TABLE `user` (
 
 # Dump of table userLikeTag
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `userLikeTag`;
 
 CREATE TABLE `userLikeTag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
