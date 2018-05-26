@@ -79,7 +79,6 @@ export default handleAction({
     [STICK_TOPIC]: {
         success: (state, action) => {
             const topicId = action.payload.id
-            console.info(state.topic, state.currentTopicId, action.payload)
             return {
                 ...state,
                 topicList: state.topicList

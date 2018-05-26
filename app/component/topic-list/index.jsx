@@ -42,11 +42,10 @@ export default class TopicList extends PureComponent {
                                 <div className="content">
                                     <h5 className="mb-1 d-flex">
                                         {
-                                            topic.isSticked && (
+                                            topic.isSticked === 1 && (
                                                 <span className="badge badge-success mr-2">置顶</span>
                                             )
                                         }
-
                                         {topic.title}
                                     </h5>
                                     <div className="tags">
