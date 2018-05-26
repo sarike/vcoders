@@ -1,4 +1,4 @@
-import { CREATE_TOPIC, LOAD_TOPIC_LIST, LOAD_TOPIC_DETAIL, LOAD_COMMENT_LIST, ADD_COMMENT } from '../redux/type'
+import { CREATE_TOPIC, STICK_TOPIC, LOAD_TOPIC_LIST, LOAD_TOPIC_DETAIL, LOAD_COMMENT_LIST, ADD_COMMENT } from '../redux/type'
 import Api from './api'
 
 export default new Api({
@@ -23,5 +23,10 @@ export default new Api({
         method: 'post',
         url: '/api/topic/:id/comment',
         actionType: ADD_COMMENT
+    },
+    stick: {
+        method: 'post',
+        url: '/api/topic/:id/stick',
+        actionType: STICK_TOPIC
     }
 })

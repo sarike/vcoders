@@ -74,8 +74,7 @@ router.post('/', loginRequired(), async ctx => {
 /** Topic list */
 router.get('/', async (ctx, next) => {
     const { page = 1, pageSize = config.topicPageSize } = ctx.query
-    const order = ['id', 'desc']
-    const topics = await topicService.list(parseInt(page), pageSize, null, order)
+    const topics = await topicService.list(parseInt(page), pageSize, null, null, { orderByRaw: [ 'isSticked desc, updateTime desc' ] })
     ctx.response.body = topics
 })
 
@@ -85,6 +84,17 @@ router.get('/:id', async ctx => {
     const topic = await topicService.view(id)
     ctx.assert(topic, 404)
     ctx.response.body = topic
+})
+
+/** Topic detail */
+router.post('/:id/stick', loginRequired(true), existed('topic'), async ctx => {
+    const topic = ctx.state.currentResource
+    const isSticked = topic.isSticked ? 0 : 1
+    await db.table('topic').where({ id: topic.id }).update({ isSticked })
+    ctx.response.body = {
+        id: topic.id,
+        isSticked
+    }
 })
 
 router.delete('/:id', loginRequired(), existed('topic'), async ctx => {

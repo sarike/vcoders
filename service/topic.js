@@ -1,8 +1,8 @@
 const db = require('../common/database')
 
 module.exports = {
-    async list (page, pageSize, whereArgs, orderByArgs) {
-        const topics = await db.page('topic', page, pageSize, whereArgs, orderByArgs)
+    async list (page, pageSize, whereArgs, orderByArgs, otherArgs) {
+        const topics = await db.page('topic', page, pageSize, whereArgs, orderByArgs, otherArgs)
         const topicIds = []
         const userIds = []
         topics.forEach(t => {

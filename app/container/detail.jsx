@@ -39,8 +39,13 @@ class Detail extends PureComponent {
             data: { content }
         }, { topicId })
     }
+    handleStickTopic (topic) {
+        return topicApi.stick({
+            params: { id: topic.id }
+        })
+    }
     render () {
-        const { topic, topicLoading, commentList, commentListLoading, addNewCommentLoading } = this.props
+        const { userProfile, topic, topicLoading, commentList, commentListLoading, addNewCommentLoading } = this.props
         return (
             <div className="container mt-4">
                 <div className="row">
@@ -48,6 +53,8 @@ class Detail extends PureComponent {
                         <TopicDetail
                             topic={topic}
                             loading={topicLoading}
+                            stickable={userProfile.isAdmin === 1}
+                            onStick={topic => this.handleStickTopic(topic)}
                         />
                         <div className="mb-3">
                             <CommentList

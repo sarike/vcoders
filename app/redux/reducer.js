@@ -14,7 +14,8 @@ import {
     LOAD_TAG_TOPIC_LIST,
     LOAD_TAG_DETAIL,
     VIEW_TAG_DETAIL,
-    LOAD_USER_TOPIC_LIST
+    LOAD_USER_TOPIC_LIST,
+    STICK_TOPIC
 } from './type'
 
 const initialState = {
@@ -74,6 +75,29 @@ export default handleAction({
             ...state,
             topicListLoading: false
         })
+    },
+    [STICK_TOPIC]: {
+        success: (state, action) => {
+            const topicId = action.payload.id
+            console.info(state.topic, state.currentTopicId, action.payload)
+            return {
+                ...state,
+                topicList: state.topicList
+                    ? ({
+                        ...state.topicList,
+                        list: state.topicList.list.map(topic => {
+                            if (topic.id === topicId) {
+                                return { ...topic, isSticked: action.payload.isSticked }
+                            }
+                            return topic
+                        })
+                    })
+                    : state.topicList,
+                topic: topicId === state.currentTopicId && state.topic
+                    ? ({ ...state.topic, isSticked: action.payload.isSticked })
+                    : state.topic
+            }
+        }
     },
     [ADD_COMMENT]: {
         pre: state => ({

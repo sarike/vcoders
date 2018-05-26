@@ -40,7 +40,15 @@ export default class TopicList extends PureComponent {
                                     />
                                 </div>
                                 <div className="content">
-                                    <h5 className="mb-1">{topic.title}</h5>
+                                    <h5 className="mb-1 d-flex">
+                                        {
+                                            topic.isSticked && (
+                                                <span className="badge badge-success mr-2">置顶</span>
+                                            )
+                                        }
+
+                                        {topic.title}
+                                    </h5>
                                     <div className="tags">
                                         {
                                             topic.tags.map(tag => <TagItem key={tag.id} className="mr-1" tag={tag} />)

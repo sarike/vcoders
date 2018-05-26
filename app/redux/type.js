@@ -3,6 +3,7 @@ export const VIEW_TOPIC_DETAIL = 'view-topic-detail'
 export const LOAD_TOPIC_LIST = 'load-topic-list'
 export const LOAD_TOPIC_DETAIL = 'load-topic-detail'
 export const CREATE_TOPIC = 'create-topic'
+export const STICK_TOPIC = 'stick-topic'
 
 // 评论
 export const VIEW_COMMENT_DETAIL = 'view-comment-detail'

@@ -9,7 +9,7 @@ const db = knex({
 
 module.exports = db
 
-module.exports.page = function (table, page, pageSize, whereArgs, orderByArgs) {
+module.exports.page = function (table, page, pageSize, whereArgs, orderByArgs, otherArgs = {}) {
     const offset = (page - 1) * pageSize
     let query = db.select().table(table)
     if (whereArgs) {
@@ -17,6 +17,9 @@ module.exports.page = function (table, page, pageSize, whereArgs, orderByArgs) {
     }
     if (orderByArgs) {
         query = query.orderBy(...orderByArgs)
+    }
+    for (let key in otherArgs) {
+        query = query[key](...otherArgs[key])
     }
     return query.offset(offset).limit(pageSize)
 }
