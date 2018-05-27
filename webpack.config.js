@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const styleLoader = (isScss = true) => {
@@ -19,10 +19,7 @@ const styleLoader = (isScss = true) => {
         commonLoaders.push('sass-loader')
     }
     if (isProd) {
-        return ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: commonLoaders
-        })
+        commonLoaders.unshift(MiniCssExtractPlugin.loader)
     }
     return [
         'style-loader',
@@ -45,7 +42,10 @@ module.exports = () => {
     const plugins = commonPlugins()
     if (process.env.NODE_ENV === 'production') {
         plugins.unshift(new CleanWebpackPlugin(['public/*.*']))
-        plugins.unshift(new ExtractTextPlugin('styles.[hash].css'))
+        plugins.unshift(new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+            chunkFilename: '[name].[hash].css'
+        }))
     }
     return {
         mode: process.env.NODE_ENV,

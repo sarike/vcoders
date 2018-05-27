@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./app/component/user-profile-form/user-profile-form.scss"],"names":[],"mappings":"AAAA,2BAA2B,WAAW,YAAY,cAAc,uC","file":"setting.6899e6634b1a59144814.css","sourcesContent":[".user-profile-form .avatar{width:4rem;height:4rem;display:block;box-shadow:0 0 6px 1px rgba(0,0,0,.15)}"],"sourceRoot":""}
