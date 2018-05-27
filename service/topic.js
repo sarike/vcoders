@@ -52,10 +52,10 @@ module.exports = {
         }
         const topicId = await db.transaction(async trx => {
             if (tagToCreate.length > 0) {
-                tagToCreate.forEach(async t => {
-                    const tagId = await trx.insert({ name: t }).into('tag')
+                for (let i = 0; i < tagToCreate.length; i++) {
+                    const tagId = await trx.insert({ name: tagToCreate[i] }).into('tag')
                     tagIds = tagIds.concat(tagId)
-                })
+                }
             }
             const tagToUnlink = isEditing
                 ? originalTopic.tags.map(t => t.id).filter(tId => tagIds.indexOf(tId) === -1)

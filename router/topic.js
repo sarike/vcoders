@@ -14,7 +14,7 @@ const router = new Router({
 /** Publish new topic */
 router.post('/', loginRequired(), async ctx => {
     const topicData = {
-        ...ctx.req.body,
+        ...ctx.request.body,
         userId: ctx.req.user.id
     }
     const topic = await topicService.save(topicData, ctx)

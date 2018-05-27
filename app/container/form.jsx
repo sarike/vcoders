@@ -65,6 +65,7 @@ class Form extends PureComponent {
     }
     render () {
         const { topicSaveLoading, tagList, topic } = this.props
+        const isEditing = this.isEditing()
         return (
             <div className="container mt-4">
                 <div className="row">
@@ -72,8 +73,8 @@ class Form extends PureComponent {
                         <TopicForm
                             loading={topicSaveLoading}
                             tagList={tagList}
-                            topic={topic}
-                            isEditing={this.isEditing()}
+                            topic={isEditing ? topic : null}
+                            isEditing={isEditing}
                             onSave={topic => this.handleSaveTopic(topic)}
                             onCancel={() => this.handleCancel()}
                         />
