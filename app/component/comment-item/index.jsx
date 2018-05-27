@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import showdown from 'showdown'
 import { formatDatetime } from '../../util'
 
 import './comment-item.scss'
+
+const converter = new showdown.Converter()
 
 class CommentItem extends Component {
     render () {
@@ -14,9 +17,11 @@ class CommentItem extends Component {
                     <img src={comment.user.avatarURL} alt={comment.user.nickName} className="avatar mr-2" />
                     <small><a href="#">{comment.user.nickName}</a> 发布于 {formatDatetime(comment.createTime)}</small>
                 </div>
-                <p className="mb-1">{comment.content}</p>
+                <p
+                    dangerouslySetInnerHTML={{ __html: converter.makeHtml(comment.content) }}
+                    className="mb-1"
+                />
             </div>
-
         )
     }
 }

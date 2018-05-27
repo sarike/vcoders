@@ -1,5 +1,4 @@
 const Router = require('koa-router')
-const db = require('../common/database')
 const config = require('../config')
 const { existed } = require('../middleware/resource')
 const { loginRequired } = require('../middleware/auth')
