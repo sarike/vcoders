@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import Header from './container/header'
 import Footer from './container/footer'
 import Home from './container/home'
-import Publish from './container/publish'
+import Form from './container/form'
 import Setting from './container/setting'
 import Detail from './container/detail'
 import CommentDetail from './container/comment'
@@ -33,7 +33,8 @@ export default class App extends Component {
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/setting" component={Setting} />
-                            <Route path="/publish" component={Publish} />
+                            <Route path="/publish" component={Form} />
+                            <Route path="/topic/:id/edit" component={Form} />
                             <Route path="/topic/:id" component={Detail} />
                             <Route path="/comment/:id" component={CommentDetail} />
                             <Route path="/tag/:id" component={Tag} />

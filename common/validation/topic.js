@@ -42,5 +42,15 @@ module.exports = {
             validator: Array.isArray,
             message: '不合法的参数 newTags'
         }
+    ],
+    userId: [
+        {
+            validator: () => true
+        }
+    ],
+    id: [
+        {
+            validator: () => true
+        }
     ]
 }

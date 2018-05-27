@@ -23,7 +23,9 @@ module.exports = function validate (data, rules) {
         const fieldValRet = module.exports.validateField(data[field], rules[field], data)
         if (fieldValRet.isValid) {
             if (!ret.data) ret.data = {}
-            ret.data[field] = data[field]
+            if (data[field] !== undefined) {
+                ret.data[field] = data[field]
+            }
         } else {
             ret.isValid = false
             if (!ret.errors) ret.errors = {}

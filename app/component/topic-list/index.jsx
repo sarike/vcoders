@@ -35,8 +35,8 @@ export default class TopicList extends PureComponent {
                                 <div className="avatar pr-3">
                                     <img
                                         className="rounded"
-                                        src={topic.user.avatarURL}
-                                        alt={topic.user.nickName}
+                                        src={topic.user && topic.user.avatarURL}
+                                        alt={topic.user && topic.user.nickName}
                                     />
                                 </div>
                                 <div className="content">
@@ -54,7 +54,12 @@ export default class TopicList extends PureComponent {
                                         }
                                     </div>
                                     <small>
-                                        <a href={`user/${topic.user.id}`}>{topic.user.nickName}</a> 发布于 {formatDatetime(topic.createTime)}
+                                        {
+                                            topic.user && (
+                                                <a className="mr-1" href={`user/${topic.user.id}`}>{topic.user.nickName}</a>
+                                            )
+                                        }
+                                        发布于 {formatDatetime(topic.createTime)}
                                     </small>
                                 </div>
                             </div>

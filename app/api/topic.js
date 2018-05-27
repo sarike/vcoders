@@ -1,4 +1,4 @@
-import { CREATE_TOPIC, STICK_TOPIC, LOAD_TOPIC_LIST, LOAD_TOPIC_DETAIL, LOAD_COMMENT_LIST, ADD_COMMENT } from '../redux/type'
+import { CREATE_TOPIC, UPDATE_TOPIC, STICK_TOPIC, LOAD_TOPIC_LIST, LOAD_TOPIC_DETAIL, LOAD_COMMENT_LIST, ADD_COMMENT } from '../redux/type'
 import Api from './api'
 
 export default new Api({
@@ -6,6 +6,11 @@ export default new Api({
         url: '/api/topic',
         method: 'post',
         actionType: CREATE_TOPIC
+    },
+    update: {
+        url: '/api/topic/:id',
+        method: 'put',
+        actionType: UPDATE_TOPIC
     },
     list: {
         url: '/api/topic',

@@ -44,6 +44,9 @@ class Detail extends PureComponent {
             params: { id: topic.id }
         })
     }
+    handleEditTopic (topic) {
+        this.props.history.push(`/topic/${topic.id}/edit`)
+    }
     render () {
         const { userProfile, topic, topicLoading, commentList, commentListLoading, addNewCommentLoading } = this.props
         return (
@@ -54,7 +57,9 @@ class Detail extends PureComponent {
                             topic={topic}
                             loading={topicLoading}
                             stickable={userProfile.isAdmin === 1}
+                            editable={topic && userProfile.id === topic.userId}
                             onStick={topic => this.handleStickTopic(topic)}
+                            onEdit={topic => this.handleEditTopic(topic)}
                         />
                         <div className="mb-3">
                             <CommentList

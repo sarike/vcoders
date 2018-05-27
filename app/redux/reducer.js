@@ -1,6 +1,7 @@
 import { handleAction } from '../util'
 import {
     CREATE_TOPIC,
+    UPDATE_TOPIC,
     VIEW_TOPIC_DETAIL,
     LOAD_TOPIC_DETAIL,
     LOAD_TOPIC_LIST,
@@ -27,7 +28,7 @@ const initialState = {
     topicLoading: false,
     topicList: null,
     topicListLoading: false,
-    topicPublishLoading: false,
+    topicSaveLoading: false,
 
     comment: null,
     commentList: {},
@@ -55,11 +56,33 @@ export default handleAction({
     [CREATE_TOPIC]: {
         pre: state => ({
             ...state,
-            topicPublishLoading: true
+            topicSaveLoading: true
         }),
         complete: (state) => ({
             ...state,
-            topicPublishLoading: false
+            topicSaveLoading: false
+        })
+    },
+    [UPDATE_TOPIC]: {
+        pre: state => ({
+            ...state,
+            topicSaveLoading: true
+        }),
+        success: (state, action) => {
+            if (state.topic && state.topic.id === action.payload.id) {
+                return {
+                    ...state,
+                    topic: {
+                        ...state.topic,
+                        ...action.payload
+                    }
+                }
+            }
+            return state
+        },
+        complete: (state) => ({
+            ...state,
+            topicSaveLoading: false
         })
     },
     [LOAD_TOPIC_LIST]: {

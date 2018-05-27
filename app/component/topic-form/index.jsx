@@ -6,6 +6,19 @@ import rules from '../../../common/validation/topic'
 import './topic-form.scss'
 
 export default class TopicForm extends PureComponent {
+    static getDerivedStateFromProps (nextProps, prevState) {
+        const { topic } = nextProps
+        const { inputed } = prevState
+        if (inputed || !topic) return null
+        return {
+            formData: {
+                title: topic.title,
+                content: topic.content,
+                tags: topic.tags.map(t => t.id),
+                newTags: []
+            }
+        }
+    }
     constructor (props) {
         super(props)
         this.state = {
@@ -15,7 +28,8 @@ export default class TopicForm extends PureComponent {
                 content: '',
                 tags: [],
                 newTags: []
-            }
+            },
+            inputed: false
         }
     }
     handleFieldChange (e) {
@@ -37,7 +51,8 @@ export default class TopicForm extends PureComponent {
                 errors: {
                     ...prevState.errors,
                     [validateFieldName]: valRet.error
-                }
+                },
+                inputed: true
             }
         })
     }
