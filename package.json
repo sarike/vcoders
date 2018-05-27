@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A demo project for learning React.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarike/vcoders"
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "classnames": "^2.2.5",
@@ -19,6 +23,7 @@
     "passport-github": "^1.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-loadable": "^5.4.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -28,7 +33,9 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -41,20 +48,21 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "html-webpack-plugin": "^2.30.1",
-    "koa-webpack": "^2.0.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "koa-webpack": "^4.0.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
-    "webpack": "^3.10.0"
+    "webpack": "^4.9.1",
+    "webpack-command": "^0.2.0"
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon --watch router --watch service index.js",
     "debug": "NODE_ENV=development node --inspect=9229 index.js",
-    "build": "webpack --env.production"
+    "build": "NODE_ENV=production webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sarike <sarike@timefly.cn>",
   "license": "ISC"
 }
