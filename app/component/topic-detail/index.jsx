@@ -1,11 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import showdown from 'showdown'
 import Tags from '../tags'
-import { formatDatetime } from '../../util'
+import { formatDatetime, parseMarkdown } from '../../util'
 import './topic-detail.scss'
-
-const converter = new showdown.Converter()
 
 export default class TopicDetail extends PureComponent {
     handleStick (e, topic) {
@@ -31,7 +28,7 @@ export default class TopicDetail extends PureComponent {
                         { editable && <a href="#" className="ml-3" onClick={e => this.handleEdit(e, topic)}>编辑</a>}
                     </small>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(content) }} />
+                <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
                 <div className="mb-1"><Tags tags={tags} /></div>
             </Fragment>
         )

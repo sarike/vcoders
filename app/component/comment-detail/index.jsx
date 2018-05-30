@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import showdown from 'showdown'
-import { formatDatetime } from '../../util'
+import { formatDatetime, parseMarkdown } from '../../util'
 import './comment-detail.scss'
-
-const converter = new showdown.Converter()
 
 export default class CommentDetail extends PureComponent {
     handleViewTopicDetail (e, topic) {
@@ -21,7 +18,7 @@ export default class CommentDetail extends PureComponent {
         const { topic, parent, content, user, createTime } = comment
         return (
             <div>
-                <div className="mb-3" dangerouslySetInnerHTML={{ __html: converter.makeHtml(content) }} />
+                <div className="mb-3" dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
                 <div className="mb-3" >
                     <small><a href="#">{user && user.nickName}</a> 评论于 {formatDatetime(createTime)}</small>
                 </div>

@@ -56,8 +56,8 @@ class Detail extends PureComponent {
                         <TopicDetail
                             topic={topic}
                             loading={topicLoading}
-                            stickable={userProfile.isAdmin === 1}
-                            editable={topic && userProfile.id === topic.userId}
+                            stickable={userProfile && userProfile.isAdmin === 1}
+                            editable={topic && userProfile && userProfile.id === topic.userId}
                             onStick={topic => this.handleStickTopic(topic)}
                             onEdit={topic => this.handleEditTopic(topic)}
                         />

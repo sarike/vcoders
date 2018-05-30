@@ -1,4 +1,12 @@
 import moment from 'moment'
+import showdown from 'showdown'
+import hightlight from 'showdown-highlight'
+
+const converter = new showdown.Converter({ extensions: [hightlight] })
+
+export function parseMarkdown (md) {
+    return converter.makeHtml(md)
+}
 
 export function formatDatetime (dateTimeString) {
     return moment(dateTimeString).format('YYYY-MM-DD HH:mm:ss')
