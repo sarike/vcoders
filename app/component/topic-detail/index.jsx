@@ -35,7 +35,7 @@ export default class TopicDetail extends PureComponent {
     }
     render () {
         return (
-            <div className="card mb-3">
+            <div className="card mb-3 topic-detail">
                 <div className="card-body">
                     {this.renderTopic()}
                 </div>

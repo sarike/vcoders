@@ -19,7 +19,7 @@ class Footer extends PureComponent {
                         >本站服务器</a>
                     </div>
                     <div>
-                        <small>VCoders（我们程序员） - 一个正经的程序员扯淡社区。</small>
+                        <small>VCoders 一个正经的程序员扯淡社区。</small>
                     </div>
                 </div>
             </div>

@@ -50,11 +50,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(async function (user, done) {
     const userData = await db.from('user').where('id', user.id).first()
-    if (userData) {
-        done(null, userData)
-    } else {
-        done(new Error('user not found', null))
-    }
+    done(null, userData)
 })
 
 module.exports = passport
