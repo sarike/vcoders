@@ -20,7 +20,7 @@ module.exports = {
             Object.assign(error, errors)
             throw error
         }
-        const { title, content, tags = [], newTags = [] } = data
+        const { title, userId, content, tags = [], newTags = [] } = data
         // 选择的 Tag ID 列表
         let tagIds = []
         let tagToCreate = []
@@ -47,6 +47,7 @@ module.exports = {
         }
         const topicData = {
             title,
+            userId,
             content: sanitize(content),
             status: constant.TOPIC_STATUS_APPROVED
         }
