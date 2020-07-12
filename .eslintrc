@@ -1,17 +1,17 @@
 {
-    "parser": "babel-eslint",
-    "extends": [
-        "standard",
-        "plugin:react/recommended"
-    ],
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "rules": {
-        "indent": ["error", 4],
-        "react/prop-types": ["error", { "skipUndeclared": true }]
+  "parser": "babel-eslint",
+  "extends": ["standard", "plugin:react/recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "rules": {
+    "semi": "off",
+    "comma-dangle": "off",
+    "indent": ["error", 2],
+    "space-before-function-paren": "off",
+    "react/prop-types": ["error", { "skipUndeclared": true }]
+  }
 }
