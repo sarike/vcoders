@@ -29,13 +29,6 @@ export default class TopicList extends PureComponent {
               className="list-group-item list-group-item-action d-flex flex-row align-items-center"
               onClick={() => this.handleClickTopicItem(topic)}
             >
-              <div className="avatar pr-3">
-                <img
-                  className="rounded"
-                  src={topic.user && topic.user.avatarURL}
-                  alt={topic.user && topic.user.nickName}
-                />
-              </div>
               <div className="content">
                 <h5 className="mb-1 d-flex">
                   {topic.isSticked === 1 && <span className="badge badge-success mr-2">置顶</span>}
