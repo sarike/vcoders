@@ -8,7 +8,7 @@
     "url": "https://github.com/sarike/vcoders"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "classnames": "^2.2.5",
     "knex": "^0.14.6",
     "koa": "^2.4.1",
