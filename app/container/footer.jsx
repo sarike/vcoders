@@ -10,12 +10,14 @@ class Footer extends PureComponent {
             <a href="https://github.com/sarike/vcoders" target="_blank" rel="noopener noreferrer">
               源码
             </a>
-            <a href="https://m.do.co/c/a6759cf25bea" target="_blank" rel="noopener noreferrer">
-              本站服务器
-            </a>
           </div>
           <div>
             <small>VCoders 一个正经的程序员扯淡社区。</small>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+              <small>
+                京ICP备18032651号-2
+              </small>
+            </a>
           </div>
         </div>
       </div>
