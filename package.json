@@ -17,7 +17,7 @@
     "koa-router": "^7.3.0",
     "koa-session": "^5.7.1",
     "koa-static": "^4.0.2",
-    "moment": "^2.21.0",
+    "moment": "^2.29.4",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
     "passport-github": "^1.1.0",
